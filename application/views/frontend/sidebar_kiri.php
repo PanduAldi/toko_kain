@@ -1,3 +1,5 @@
+
+
 		<div class="list-group">
 			<a href="#" class="list-group-item active"><i class="fa fa-list"></i> Kategori</a>
 			<?php foreach ($kategori as $k): ?>
@@ -10,6 +12,6 @@
 				Kain Terlaris
 			</div>
 			<div class="panel body">
-				
+					
 			</div>
 		</div>
