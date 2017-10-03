@@ -53,7 +53,6 @@ $route['default_controller'] = 'frontend_home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-
 /**
 * Frontend
 */
@@ -63,7 +62,19 @@ $route['tentang-kami'] = "frontend_home/tentang_kami";
 $route['cara-belanja'] = "frontend_home/cara_belanja";
 $route['hubungi-kami'] = "frontend_home/hubungi_kami";
 $route['member-area'] = "front_member";
-$route['kategori/(:num)_(:any)'] = "front_produk/by_kategori/$1_$2";
+$route['kategori/(:any)'] = "front_produk/by_kategori/$1";
+
+#cart
+$route['keranjang-belanja'] = "front_cart";
+$route['tambah-keranjang'] = "front_cart/add";
+$route['update-keranjang'] = "Front_cart/edit";
+$route['hapus-keranjang/(:num)'] = "front_cart/delete";
+
+//API
+$route['ambil-provinsi'] = "api_controller/get_all_province";
+$route['detail-provinsi'] = "api_controller/get_detail_province";
+$route['ambil-kota/(:num)'] = "api_controller/get_city_by_province/$1";
+$route['detail-kota/(:num)'] = "api_controller/get_detail_city/$1";
 
 /**
  * Backend 

@@ -25,15 +25,17 @@
 							<p>Rp. <?php echo number_format($p['harga']).",- /Roll" ?></p>
 			      			<hr class="line">
 			      			<div class="row">
-			      					<button class="btn btn-success" > Lihat Detail</button>	
-			      					<button class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Beli</button>
+			      					<a href="<?php echo site_url('produk/detail/'.$p['kode_produk'].'_'.$p['nama']) ?>" class="btn btn-success btn-sm">Lihat Detail</a>
+			      					
+			      					<?php if ($this->session->userdata('p_login') == true): ?>
+			      						<form action="<?php echo site_url() ?>"></form>
+			      					<?php endif ?>
 			      			</div>
 			    		</span>
 			  		</div>			  				
 			  		<?php endforeach ?>
 			  		<!-- END PRODUCTS -->
 				</div>
-
 	</div>
 	
 	<div class="col-lg-3">

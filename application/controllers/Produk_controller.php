@@ -58,7 +58,7 @@ class Produk_controller extends CI_Controller {
 								'kode_produk' => $this->input->post('kode'),
 								'nama' => $this->input->post('nama'),
 								'img' => $this->upload->data('file_name'),
-								'deskripsi' => $this->input->post('stok'),
+								'deskripsi' => $this->input->post('deskripsi'),
 								'id_kategori' => $this->input->post('kategori'),
 								'terjual' => 0,
 								'stok' => $this->input->post('stok'),

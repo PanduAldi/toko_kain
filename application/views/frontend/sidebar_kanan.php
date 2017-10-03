@@ -42,8 +42,15 @@
 			</div>
 		</div>
 		
-		<div class="panel panel-danger">
+		<div class="panel panel-success">
 			<div class="panel-heading">
-				
+				<i class="fa fa-truck"></i> Dukungan Ekspedisi
+			</div>
+			<div class="panel-body">
+				<center>
+				<img src="<?php echo base_url('media/img/logo-jne.png') ?>" width="170" height="60" alt="">
+				<br><br>
+				<img src="<?php echo base_url('media/img/tiki.png') ?>" width="200" height="70" alt="">
+				</center>				
 			</div>
 		</div>

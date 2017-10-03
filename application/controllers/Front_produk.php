@@ -14,11 +14,18 @@ class Front_produk extends CI_Controller {
 		
 	}
 
-	public function by_kategori($id, $url)
+	public function by_kategori($id)
 	{
-		$cek = $this->db->query('select * from');
+		$ex = explode("_", $id);
 
-		$data['title'] = "Kategori "
+		$cek = $this->db->query('select * from produk where id_kategori = '.$ex[0])->result_array();
+		$data['title'] = "Kategori";
+
+		print_r($cek);
+	}
+
+	public function detail($id)
+	{
 	}
 
 }

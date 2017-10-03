@@ -91,8 +91,7 @@
 				success : function(msg)
 				{
 					$("#kode").val(msg.kode);
-					
-
+				
 					$(".baca").removeAttr("readonly");
 					$("input[name=nama]").focus();
 					

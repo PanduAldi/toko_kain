@@ -20,7 +20,11 @@ class Produk_model extends CI_Model {
 			$this->db->where($this->id, $params['id']);
 		}
 
-		if (isset($params['id'])) 
+		if (isset($params['kode'])) {
+			$this->db->where('kode_produk', $params['kode']);
+		}
+
+		if (isset($params['id']) || isset($params['kode'])) 
 		{
 			return $this->db->get($this->table)->row_array();
 		}

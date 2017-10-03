@@ -35,7 +35,6 @@ class Frontend_home extends CI_Controller {
 	public function hubungi_kami()
 	{
 		$data['title'] = "Hubungi Kami";
-
 		$this->template->display('frontend/hubungi_kami');
 	}
 }

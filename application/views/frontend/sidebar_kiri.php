@@ -9,9 +9,11 @@
 
 		<div class="panel panel-success">
 			<div class="panel-heading">
-				Kain Terlaris
+				<i class="fa fa-star"></i> Kain Terlaris
 			</div>
 			<div class="panel body">
-					
+				<?php  
+					$laris = $this->db->query('SELECT * FROM produk ORDER BY terjual LIMIT 3')->result_array();
+				?>
 			</div>
 		</div>
