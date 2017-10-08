@@ -27,7 +27,7 @@
 			      			<div class="row">
 			      					<a href="<?php echo site_url('produk/detail/'.$p['kode_produk'].'_'.url_title($p['nama'])) ?>" class="btn btn-success btn-sm">Lihat Detail</a>
 
-			      					<?php if ($this->session->userdata('p_login') == true): ?>
+			      					<?php if ($this->session->userdata('m_login') == true): ?>
 			      						<form action="<?php echo site_url() ?>"></form>
 			      					<?php endif ?>
 			      			</div>

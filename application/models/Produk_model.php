@@ -23,9 +23,25 @@ class Produk_model extends CI_Model {
 			$this->db->where('kode_produk', $params['kode']);
 		}
 
+		if (isset($params['key'])) {
+			$this->db->like('produk.nama', $params['key']);
+		}
+
+		if (isset($params['kategori'])) {
+			$this->db->where('produk.id_kategori', $params['kategori']);
+		}
+
+		if (isset($params['limit'])) {
+			$this->db->limit($params['limit'], $params['offset']);
+		}
+
 		if (isset($params['id']) || isset($params['kode']))
 		{
 			return $this->db->get($this->table)->row_array();
+		}
+		elseif (isset($params['kategori']) || isset($params['key']))
+		{
+			return $this->db->get($this->table)->result_array();
 		}
 		else
 		{
@@ -37,6 +53,19 @@ class Produk_model extends CI_Model {
 	{
 		$this->db->insert($this->table, $record);
 	}
+
+	public function hitung($kategori)
+	{
+			$this->db->where('id_kategori', $kategori);
+			return $this->db->count_all_results($this->table);
+	}
+
+	public function hitung_cari($produk)
+	{
+			$this->db->like('nama', $produk);
+			return $this->db->count_all_results($this->table);
+	}
+
 
 	public function edit($record, $id)
 	{

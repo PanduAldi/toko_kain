@@ -87,6 +87,7 @@
 					<li><a href="<?php echo site_url('setting-produk') ?>"><i class="fa fa-cubes"></i> Produk</a></li>
 					<li><a href="<?php echo site_url('setting-pemesanan') ?>"><i class="fa fa-shopping-cart"></i> Pemesananan</a></li>
 					<li><a href="<?php echo site_url('setting-user') ?>"><i class="fa fa-user"></i> User</a></li>
+          <li><a href="<?php echo site_url('setting-member') ?>"></a></li>
           <li><a href="<?php echo site_url('setting-bank') ?>"><i class="fa fa-credit-card"></i> Setting Bank</a></li>
           <li><a href="<?php echo site_url('logout') ?>"><i class="fa fa-sign-out"></i> Logout</a></li>
           <!-- <li class="dropdown">

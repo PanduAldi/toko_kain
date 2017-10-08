@@ -132,7 +132,7 @@ class Produk_controller extends CI_Controller {
 				$this->p_m->edit($rec, $id);
 
 				$this->session->set_flashdata('notif', '<div class="alert alert-success"><i class="fa fa-check"></i> Edit produk berhasil</div>');
-				redirect('setting-prPrint viewoduk','refresh');
+				redirect('setting-produk','refresh');
 			}
 		}
 

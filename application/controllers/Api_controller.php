@@ -2,16 +2,16 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
-	Aktifkan ssl serticate terlebih dahulu dengan cara : 
-	1. Download https://curl.haxx.se/ca/cacert.pem,
-	2. Masukan hasil download di xampp/php/extras/ssl/[TARUH DISINI]
-	3. Restart Xampp.. atau klik stop bagian Apache di xampp control panel, kemudia klik start kembali
+*	Aktifkan ssl serticate terlebih dahulu dengan cara :
+*	1. Download https://curl.haxx.se/ca/cacert.pem,
+*	2. Masukan hasil download di xampp/php/extras/ssl/[TARUH DISINI]
+*	3. Restart Xampp.. atau klik stop bagian Apache di xampp control panel, kemudia klik start kembali
 
 */
 
 class Api_controller extends CI_Controller {
 
-	var $key = "162872790ab382f42c088d8dc31a829c";
+	var $key = "5e0d232f4ea770ab5d97a002fcd07889";
 
 	public function get_all_province()
 	{
@@ -126,10 +126,10 @@ class Api_controller extends CI_Controller {
 		  echo "cURL Error #:" . $err;
 		} else {
 		  echo $response;
-		}	
+		}
 	}
 
-	public function cek_ongkir($origin, $destination)
+	public function cek_ongkir($destination)
 	{
 		$curl = curl_init();
 
@@ -141,7 +141,7 @@ class Api_controller extends CI_Controller {
 		  CURLOPT_TIMEOUT => 30,
 		  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 		  CURLOPT_CUSTOMREQUEST => "POST",
-		  CURLOPT_POSTFIELDS => "origin=501&destination=114&weight=3000&courier=tiki",
+		  CURLOPT_POSTFIELDS => "origin=23&destination=".$destination."&weight=5000&courier=jne",
 		  CURLOPT_HTTPHEADER => array(
 		    "content-type: application/x-www-form-urlencoded",
 		    "key: ".$this->key
@@ -156,7 +156,7 @@ class Api_controller extends CI_Controller {
 		if ($err) {
 		  echo "cURL Error #:" . $err;
 		} else {
-		  echo $response;	
+		  echo $response;
 		}
 	}
 }

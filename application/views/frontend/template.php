@@ -20,7 +20,7 @@
 
 		<!-- Date Picker -->
 		<link rel="stylesheet" href="<?php echo assets_url ?>datepicker/datepicker3.css">
-	
+
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<style>
 		.navbar{
@@ -67,7 +67,7 @@
                         <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">Link</a></li>
                         <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">Link</a></li>
                     </ul>
-                </li> -->                
+                </li> -->
                 <?php else: ?>
 	                <li class="upper-links"><a class="links" href="<?php echo site_url('member-area') ?>">Member Area</a></li>
                 <?php endif ?>
@@ -80,21 +80,23 @@
             </div>
             <div class="flipkart-navbar-search smallsearch col-sm-8 col-xs-11">
                 <div class="row">
-                    <input class="flipkart-navbar-input col-xs-11" type="" placeholder="Search for Products, Brands and more" name="">
-                    <button class="flipkart-navbar-button col-xs-1">
+                  <form action="<?php echo site_url('search') ?>" method="get">
+                    <input class="flipkart-navbar-input col-xs-11" type="text" placeholder="Cari Produk Kami Disini" name="key">
+                    <button type="submit" class="flipkart-navbar-button col-xs-1">
                      	<i class="fa fa-search"></i>
                     </button>
+                  </form>
                 </div>
             </div>
         </div>
         <center>
             <ul class="largenav">
-                <?php  
+                <?php
                     $kat = $this->db->query('SELECT * FROM kategori ORDER BY id_kategori DESC LIMIT 5')->result_array();
-                
-                    foreach ($kat as $k) 
+
+                    foreach ($kat as $k)
                     {
-                        echo '<li class="upper-links"><a class="links" href="'.site_url('kategori/'.$k['id_kategori'].'_'.url_title($k['nama'])).'">'.ucwords($k['nama']).'</a></li>';
+                        echo '<li class="upper-links"><a class="links" href="'.site_url('kategori/'.$k['id_kategori']).'">'.ucwords($k['nama']).'</a></li>';
                     }
                 ?>
             </ul>
@@ -127,7 +129,7 @@
 		        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 		    </p>
 		</div>
-		
+
 		<div class="col-md-4">
 		    <h3>Lokasi Badjatex </h3>
 		    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d433868.0837064906!2d35.66744174160663!3d31.836036762053016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151b5fb85d7981af%3A0x631c30c0f8dc65e8!2sAmman!5e0!3m2!1sen!2sjo!4v1499168051085" sytle="" frameborder="0" style="border:0" allowfullscreen></iframe>
@@ -167,19 +169,19 @@
 $(document).ready(function(){
 
 $(function(){
- 
+
     $(document).on( 'scroll', function(){
- 
+
     	if ($(window).scrollTop() > 100) {
 			$('.scroll-top-wrapper').addClass('show');
 		} else {
 			$('.scroll-top-wrapper').removeClass('show');
 		}
 	});
- 
+
 	$('.scroll-top-wrapper').on('click', scrollToTop);
 });
- 
+
 function scrollToTop() {
 	verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
 	element = $('body');
@@ -193,4 +195,3 @@ function scrollToTop() {
 
   </body>
 </html>
-																																												

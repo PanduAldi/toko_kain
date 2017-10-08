@@ -7,8 +7,9 @@ class Front_cart extends CI_Controller {
 	{
 		parent::__construct();
 
-		$this->load->model(array('produk_model'))
+		$this->load->model(array('produk_model'));
 		$this->load->library(array('cart'));
+
 	}
 
 	public function index()
@@ -50,16 +51,16 @@ class Front_cart extends CI_Controller {
 		$this->cart->update($data);
 	}
 
-	public function delete()
+	public function delete($id)
 	{
-		$id = $this->input->post('id');
-
 		$data = array(
-						"row_id" => $id,
+						"rowid" => $id,
 						"qty" => 0
 					);
 
 		$this->cart->update($data);
+
+		redirect('keranjang-belanja');
 	}
 
 }

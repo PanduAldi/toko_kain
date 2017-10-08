@@ -29,11 +29,15 @@ Berikut petunjuk pembelian secara Online melalui website kami : <div class="clea
 
 <li style="text-align: justify;">Jika Anda setuju silhkan kirim sejumlah uang yang kami konfimasikan. Berikut rekining Bank yang kami sediakan :</li>
 
+<?php
 
-<div style="text-align: justify; margin-bottom:10px; font-weight:bold;">BANK BRI<br>6125-01-003271-53-9   A/n : HERI KUSWANTO</div>
-<div style="text-align: justify; margin-bottom:10px; font-weight:bold;">BANK BCA<br>1800 658 299 A/n : HERI KUSWANTO</div>
-<div style="text-align: justify; margin-bottom:10px; font-weight:bold;">BANK MANDIRI<br>143-00-1170047-1        A/n : HERI KUSWANTO</div>
-<div style="text-align: justify; margin-bottom:10px; font-weight:bold;">BANK MANDIRI SYARIAH<br>2857 027 105       A/n : HERI KUSWANTO </div>
+  $bank = $this->db->query('SELECT * FROM bank')->result_array();
+
+  foreach ($bank as $b) {
+    echo '<div style="text-align: justify; margin-bottom:10px; font-weight:bold;">'.strtoupper($b['nama']).'<br>'.$b['no_rek'].' A/n : '.strtoupper($b['an']).'</div>';
+  }
+
+?>
 
 <li style="text-align: justify;">Setelah melakukan transfer ke bank  silahkan anda lakukan konfirmasi ke email kami atau hotline kami di 081916675856. </li>
 
