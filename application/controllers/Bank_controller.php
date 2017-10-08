@@ -7,7 +7,7 @@ class Bank_controller extends CI_Controller {
 		parent::__construct();
 
 		$this->load->model('bank_model', 'bank');
-		$this->load->library('form_validation');
+		$this->load->library(array('upload', 'form_validation'));
 
 		if ($this->session->userdata('u_login') == false)
 		{
@@ -32,14 +32,13 @@ class Bank_controller extends CI_Controller {
 		$this->form_validation->set_rules('no_rek', 'Nomor Rekening',  'trim|required|xss_clean');
     $this->form_validation->set_rules('an', 'Atas Nama', 'trim|required|xss_clean');
 
-
 		if ($this->form_validation->run() == true)
 		{
       $config['upload_path'] = './media/img/bank/';
 			$config['allowed_types'] = 'jpeg|jpg|png';
 			$config['max_size']  = '8000';
-			$config['max_width']  = '2024';
-			$config['max_height']  = '1768';
+			$config['max_width']  = '9024';
+			$config['max_height']  = '4768';
 			$config['remove_spaces'] = true;
 
 			$this->upload->initialize($config);
@@ -59,20 +58,19 @@ class Bank_controller extends CI_Controller {
 
 				$this->bank->add($rec);
 
-				$this->session->set_flashdata('notif', '<div class="alert alert-success"><i class="fa fa-check"></i> Tambah produk berhasil</div>');
-				redirect('setting-produk','refresh');
+				$this->session->set_flashdata('notif', '<div class="alert alert-success"><i class="fa fa-check"></i> Tambah bank berhasil</div>');
+				redirect('setting-bank','refresh');
 			}
 		}
 
-		$this->template->admin_display('backend/kategori/add_kategori', $data);
-
+		$this->template->admin_display('backend/bank/add_bank', $data);
 	}
 
 	public function edit($id)
   {
 
 		$data['title'] = "Edit Bank";
-		$data['v'] = $this->bank->get(array('select' => $select,'id' => $id));
+		$data['bank'] = $this->bank->get(array('id' => $id));
 
     $this->form_validation->set_rules('nama', 'Nama', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('no_rek', 'Nomor Rekening',  'trim|required|xss_clean');
@@ -98,8 +96,8 @@ class Bank_controller extends CI_Controller {
 
 				$this->bank->edit($rec, $id);
 
-				$this->session->set_flashdata('notif', '<div class="alert alert-success"><i class="fa fa-check"></i> Edit produk berhasil</div>');
-				redirect('setting-produk','refresh');
+				$this->session->set_flashdata('notif', '<div class="alert alert-success"><i class="fa fa-check"></i> Edit bank berhasil</div>');
+				redirect('setting-bank','refresh');
 			}
 			else
 			{
@@ -114,16 +112,21 @@ class Bank_controller extends CI_Controller {
 				$this->bank->edit($rec, $id);
 
 				$this->session->set_flashdata('notif', '<div class="alert alert-success"><i class="fa fa-check"></i> Edit produk berhasil</div>');
-				redirect('setting-produk','refresh');
+				redirect('setting-bank','refresh');
 			}
 		}
 
-		$this->template->admin_display('backend/produk/edit_produk', $data);
+		$this->template->admin_display('backend/bank/edit_bank', $data);
 	}
 
 	public function delete()
 	{
 		$id = $this->input->post('id');
+
+		$v = $this->bank->get(array('id' => $id));
+
+		unlink('./media/img/bank/'.$v['img']);
+
 		$this->bank->del($id);
 	}
 

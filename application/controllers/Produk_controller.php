@@ -9,7 +9,7 @@ class Produk_controller extends CI_Controller {
 		$this->load->model('produk_model', 'p_m');
 		$this->load->library(array('form_validation', 'upload'));
 
-		if ($this->session->userdata('u_login') == false) 
+		if ($this->session->userdata('u_login') == false)
 		{
 			redirect('login-admin','refresh');
 		}
@@ -37,7 +37,7 @@ class Produk_controller extends CI_Controller {
 
 		$this->__rules();
 
-		if ($this->form_validation->run() == true) 
+		if ($this->form_validation->run() == true)
 		{
 			$config['upload_path'] = './media/img/produk/';
 			$config['allowed_types'] = 'jpeg|jpg|png';
@@ -45,8 +45,8 @@ class Produk_controller extends CI_Controller {
 			$config['max_width']  = '2024';
 			$config['max_height']  = '1768';
 			$config['remove_spaces'] = true;
-			
-			$this->upload->initialize($config);		
+
+			$this->upload->initialize($config);
 			if ( ! $this->upload->do_upload('img'))
 			{
 				$this->session->set_flashdata('notif_img', $this->upload->display_errors());
@@ -89,7 +89,7 @@ class Produk_controller extends CI_Controller {
 
 		$this->__rules();
 
-		if ($this->form_validation->run() == true) 
+		if ($this->form_validation->run() == true)
 		{
 			$config['upload_path'] = './media/img/produk/';
 			$config['allowed_types'] = 'jpeg|jpg|png';
@@ -97,8 +97,8 @@ class Produk_controller extends CI_Controller {
 			$config['max_width']  = '2024';
 			$config['max_height']  = '1768';
 			$config['remove_spaces'] = true;
-			
-			$this->upload->initialize($config);		
+
+			$this->upload->initialize($config);
 			if ( ! $this->upload->do_upload('img'))
 			{
 				$rec = array(
@@ -113,7 +113,7 @@ class Produk_controller extends CI_Controller {
 				$this->p_m->edit($rec, $id);
 
 				$this->session->set_flashdata('notif', '<div class="alert alert-success"><i class="fa fa-check"></i> Edit produk berhasil</div>');
-				redirect('setting-produk','refresh');				
+				redirect('setting-produk','refresh');
 			}
 			else
 			{
@@ -132,7 +132,7 @@ class Produk_controller extends CI_Controller {
 				$this->p_m->edit($rec, $id);
 
 				$this->session->set_flashdata('notif', '<div class="alert alert-success"><i class="fa fa-check"></i> Edit produk berhasil</div>');
-				redirect('setting-produk','refresh');	
+				redirect('setting-prPrint viewoduk','refresh');
 			}
 		}
 
@@ -142,7 +142,7 @@ class Produk_controller extends CI_Controller {
 	public function delete()
 	{
 		$id = $this->input->post('id');
- 
+
 		$d = $this->p_m->get(array('id' => $id));
 
 		unlink('./media/img/produk/'.$d['img']);
@@ -159,7 +159,7 @@ class Produk_controller extends CI_Controller {
 		$this->form_validation->set_rules('stok', 'stok', 'required|trim|xss_clean');
 		$this->form_validation->set_rules('kategori', 'kategori', 'required|trim|xss_clean');
 		$this->form_validation->set_rules('harga', 'harga', 'required|trim|xss_clean');
-		
+
 
 	}
 

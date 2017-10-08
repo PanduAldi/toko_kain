@@ -2,8 +2,8 @@
 -- version 4.2.7.1
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 03, 2017 at 03:42 AM
+-- Host: localhost
+-- Generation Time: Oct 08, 2017 at 02:21 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `kode_produk`, `id_kategori`, `img`, `nama`, `terjual`, `stok`, `harga`, `create_date`, `date_update`, `user_update`, `user_create`, `deskripsi`) VALUES
-(1, 'TSL001', 1, 'milky.jpg', 'Kain Taslan Milky Kode TSL-9999', 0, 12, 60000, '2017-09-30 15:01:36', '2017-09-30 15:01:36', '-', 'admin', '12'),
+(1, 'TSL001', 1, 'milky.jpg', 'Kain Taslan Milky Kode TSL-9999', 0, 12, 60000, '2017-09-30 15:01:36', '2017-10-08 07:10:18', 'admin', 'admin', 'ini adlaah deskripsi dari produk ini'),
 (2, 'TSL002', 1, 'taslan-bening.jpg', 'Kain Taslan Coating Bening Kode TSL-9998', 0, 12, 50000, '2017-09-30 15:03:25', '2017-09-30 15:03:25', '-', 'admin', '12');
 
 -- --------------------------------------------------------
@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`user_id`, `user_name`, `user_full_name`, `user_password`, `user_email`, `user_last_login`, `create_date`, `status`) VALUES
-(1, 'admin', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', '111', '2017-09-30 14:37:04', '2017-09-30 00:00:00', 1);
+(1, 'admin', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', '111', '2017-10-08 07:09:59', '2017-09-30 00:00:00', 1);
 
 --
 -- Indexes for dumped tables

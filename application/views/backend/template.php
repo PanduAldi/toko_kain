@@ -21,7 +21,7 @@
 
 		<!-- Date Picker -->
 		<link rel="stylesheet" href="<?php echo assets_url ?>datepicker/datepicker3.css">
-	
+
 	<style>
 
 		.navbar{
@@ -87,7 +87,9 @@
 					<li><a href="<?php echo site_url('setting-produk') ?>"><i class="fa fa-cubes"></i> Produk</a></li>
 					<li><a href="<?php echo site_url('setting-pemesanan') ?>"><i class="fa fa-shopping-cart"></i> Pemesananan</a></li>
 					<li><a href="<?php echo site_url('setting-user') ?>"><i class="fa fa-user"></i> User</a></li>
-					<!-- <li class="dropdown">
+          <li><a href="<?php echo site_url('setting-bank') ?>"><i class="fa fa-credit-card"></i> Setting Bank</a></li>
+          <li><a href="<?php echo site_url('logout') ?>"><i class="fa fa-sign-out"></i> Logout</a></li>
+          <!-- <li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="#">Action</a></li>
@@ -103,7 +105,7 @@
 
     <div class="container">
 		<?php echo $_content; ?>
-    </div><!-- /.container -->  		
+    </div><!-- /.container -->
 
 	<div class="modal fade" id="hapus_modal">
 		<div class="modal-dialog">
@@ -135,7 +137,7 @@
 		<!-- datepicker -->
 		<script src="<?php echo assets_url ?>datepicker/bootstrap-datepicker.js"></script>
 
-	
+
 	<script>
 		function hapus(id, link)
 		{
@@ -144,7 +146,7 @@
 					'keyboard' : false,
 					'backdrop' : false
 				});
-				
+
 				$("input[name=id_hapus]").val(id);
 				$("input[name=url]").val(link);
 			});

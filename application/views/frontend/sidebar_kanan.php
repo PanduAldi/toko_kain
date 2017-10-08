@@ -5,26 +5,26 @@
 		}
 	</style>
 
-	<?php  
-		// $data = array(
-		// 				'id' => 1,
-		// 				'qty' => 5,
-		// 				'price' => 1000,
-		// 				'name' => "Kain",
-		// 				'options' => array('gambar' => 'milky.jpg')
-		// 			);
+	<?php
+		$data = array(
+						'id' => 1,
+						'qty' => 5,
+						'price' => 1000,
+						'name' => "Kain",
+						'options' => array('gambar' => 'milky.jpg')
+					);
 
-		// $this->cart->insert($data);
+		$this->cart->insert($data);
 
-		// $data = array(
-		// 				'id' => 2,
-		// 				'qty' => 3,
-		// 				'price' => 1500,
-		// 				'name' => "Kain 2",
-		// 				'options' => array('gambar' => 'taslan-bening.jpg')
-		// 			);
+		$data = array(
+						'id' => 2,
+						'qty' => 3,
+						'price' => 1500,
+						'name' => "Kain 2",
+						'options' => array('gambar' => 'taslan-bening.jpg')
+					);
 
-		// $this->cart->insert($data);
+		$this->cart->insert($data);
 	?>
 
 
@@ -38,10 +38,10 @@
 				<?php endforeach ?>
 				</ol>
 				<hr class="hr_cart">
-				<p>Total : Rp. <?php echo $this->cart->format_number($this->cart->total()) ?></p>				
+				<p>Total : Rp. <?php echo $this->cart->format_number($this->cart->total()) ?></p>
 			</div>
 		</div>
-		
+
 		<div class="panel panel-success">
 			<div class="panel-heading">
 				<i class="fa fa-truck"></i> Dukungan Ekspedisi
@@ -51,6 +51,6 @@
 				<img src="<?php echo base_url('media/img/logo-jne.png') ?>" width="170" height="60" alt="">
 				<br><br>
 				<img src="<?php echo base_url('media/img/tiki.png') ?>" width="200" height="70" alt="">
-				</center>				
+				</center>
 			</div>
 		</div>

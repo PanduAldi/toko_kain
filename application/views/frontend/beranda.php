@@ -14,7 +14,7 @@
 
 	<div class="col-lg-6">
 			<div class="well well-sm"><strong><i class="fa fa-home"></i> <?php echo ucwords($title) ?></strong></div>
-	
+
 			<div class="row">
 			    	<!-- BEGIN PRODUCTS -->
 			  		<?php foreach ($random_produk as $p): ?>
@@ -25,19 +25,19 @@
 							<p>Rp. <?php echo number_format($p['harga']).",- /Roll" ?></p>
 			      			<hr class="line">
 			      			<div class="row">
-			      					<a href="<?php echo site_url('produk/detail/'.$p['kode_produk'].'_'.$p['nama']) ?>" class="btn btn-success btn-sm">Lihat Detail</a>
-			      					
+			      					<a href="<?php echo site_url('produk/detail/'.$p['kode_produk'].'_'.url_title($p['nama'])) ?>" class="btn btn-success btn-sm">Lihat Detail</a>
+
 			      					<?php if ($this->session->userdata('p_login') == true): ?>
 			      						<form action="<?php echo site_url() ?>"></form>
 			      					<?php endif ?>
 			      			</div>
 			    		</span>
-			  		</div>			  				
+			  		</div>
 			  		<?php endforeach ?>
 			  		<!-- END PRODUCTS -->
 				</div>
 	</div>
-	
+
 	<div class="col-lg-3">
 		<?php $this->load->view('frontend/sidebar_kanan') ?>
 	</div>

@@ -8,13 +8,12 @@ class Produk_model extends CI_Model {
 
 	public function get($params=array())
 	{
-		if (isset($params['select'])) 
+		if (isset($params['select']))
 		{
 			$this->db->select($params['select']);
 		}
 
 		$this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori');
-
 
 		if(isset($params['id'])) {
 			$this->db->where($this->id, $params['id']);
@@ -24,7 +23,7 @@ class Produk_model extends CI_Model {
 			$this->db->where('kode_produk', $params['kode']);
 		}
 
-		if (isset($params['id']) || isset($params['kode'])) 
+		if (isset($params['id']) || isset($params['kode']))
 		{
 			return $this->db->get($this->table)->row_array();
 		}
@@ -62,16 +61,16 @@ class Produk_model extends CI_Model {
 
 		$row = $query->row_array();
 		$cek = $query->num_rows();
-		
-		if ($cek == 0) 
+
+		if ($cek == 0)
 		{
 			$nomor = 1;
 		}
 		else
 		{
-			
-			$nomor = intval(substr($row['kode_produk'], strlen($awalan)))+1;	
-			
+
+			$nomor = intval(substr($row['kode_produk'], strlen($awalan)))+1;
+
 		}
 
 		if ($lebar > 0)

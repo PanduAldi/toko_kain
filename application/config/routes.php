@@ -63,6 +63,7 @@ $route['cara-belanja'] = "frontend_home/cara_belanja";
 $route['hubungi-kami'] = "frontend_home/hubungi_kami";
 $route['member-area'] = "front_member";
 $route['kategori/(:any)'] = "front_produk/by_kategori/$1";
+$route['produk/detail/(:any)'] = "front_produk/detail/$1";
 
 #cart
 $route['keranjang-belanja'] = "front_cart";
@@ -77,7 +78,7 @@ $route['ambil-kota/(:num)'] = "api_controller/get_city_by_province/$1";
 $route['detail-kota/(:num)'] = "api_controller/get_detail_city/$1";
 
 /**
- * Backend 
+ * Backend
  */
 
 $route['login-admin'] = "auth_controller";
@@ -92,5 +93,10 @@ $route['setting-produk'] = "produk_controller";
 $route['tambah-produk'] = "produk_controller/add";
 $route['ubah-produk/(:num)'] = "produk_controller/edit/$1";
 $route['hapus-produk'] = "produk_controller/delete";
+$route['detail-produk/(:any)'] = "produk_controller/detail/$1";
 $route['ambil-kode'] = "produk_controller/ambil_kode";
 
+$route['setting-bank'] = "bank_controller";
+$route['tambah-bank'] = "bank_controller/add";
+$route['ubah-bank/(:num)'] = "bank_controller/edit/$1";
+$route['hapus-bank'] = "bank_controller/delete";

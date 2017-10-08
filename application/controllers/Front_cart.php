@@ -9,7 +9,7 @@ class Front_cart extends CI_Controller {
 
 		$this->load->model(array('produk_model'))
 		$this->load->library(array('cart'));
-	}	
+	}
 
 	public function index()
 	{
@@ -22,7 +22,7 @@ class Front_cart extends CI_Controller {
 	public function add()
 	{
 		$id = $this->input->post('id');
-		
+
 		$cek = $this->produk_model->get(array('kode' => $id));
 
 
@@ -44,9 +44,9 @@ class Front_cart extends CI_Controller {
 
 		$data = array(
 						"rowid" => $id,
-						"qty" => $this->input->post('jumlah') 
+						"qty" => $this->input->post('jumlah')
 					);
-	
+
 		$this->cart->update($data);
 	}
 
