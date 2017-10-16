@@ -314,7 +314,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'kasjkajskajskjaksj91981928askh19aksjkajs19ajskaj19kajsk';
 
 /*
 |--------------------------------------------------------------------------
@@ -323,7 +323,7 @@ $config['encryption_key'] = '';
 |
 | 'sess_driver'
 |
-|	The storage driver to use: files, database, redis, memcached
+|	The storage driver to use: files, database, redis, memcached8eh
 |
 | 'sess_cookie_name'
 |

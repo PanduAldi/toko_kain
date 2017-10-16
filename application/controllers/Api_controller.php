@@ -5,8 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 *	Aktifkan ssl serticate terlebih dahulu dengan cara :
 *	1. Download https://curl.haxx.se/ca/cacert.pem,
 *	2. Masukan hasil download di xampp/php/extras/ssl/[TARUH DISINI]
+* 3. Edit php.ini di C:/XAMPP/Apache/php.ini, cari options PHP.. tambahkan  curl.cainfo = [path]
 *	3. Restart Xampp.. atau klik stop bagian Apache di xampp control panel, kemudia klik start kembali
-
 */
 
 class Api_controller extends CI_Controller {

@@ -22,17 +22,16 @@ class Front_cart extends CI_Controller {
 
 	public function add()
 	{
-		$id = $this->input->post('id');
+		$id = $this->input->post('kode');
 
 		$cek = $this->produk_model->get(array('kode' => $id));
-
 
 		$data = array(
 						'id' => $cek['kode_produk'],
 						'name' => $cek['nama'],
-						'qty' => $this->input->post('jumlah'),
+						'qty' => 5,
 						'price' => $cek['harga'],
-						'option' => array('img' => $cek['img'])
+						'options' => array('img' => $cek['img'])
 					);
 
 		$this->cart->insert($data);
@@ -41,14 +40,21 @@ class Front_cart extends CI_Controller {
 
 	public function edit()
 	{
+		$total  = $this->cart->contents();
 		$id = $this->input->post('id');
+		$qty = $this->input->post('qty');
 
-		$data = array(
-						"rowid" => $id,
-						"qty" => $this->input->post('jumlah')
-					);
+		for ($i=0; $i < count($total) ; $i++)
+		{
+			$data = array(
+					'rowid' => $id[$i],
+					'qty' => $qty[$i]
+			);
 
-		$this->cart->update($data);
+			$this->cart->update($data);
+		}
+
+		redirect('keranjang-belanja', 'refresh');
 	}
 
 	public function delete($id)

@@ -34,10 +34,10 @@
           </tr>
           <tr>
             <td colspan="3">
-              <?php if ($this->session->userdata('p_login') == true): ?>
-                  <button type="button" onclick="beli(<?php echo $d['kode_produk'] ?>)" class="btn btn-success"><i class="fa fa-shoppring-cart"</i> Beli</button>
+              <?php if ($this->session->userdata('m_login') == true): ?>
+                  <button type="button" onclick="beli('<?php echo $d['kode_produk'] ?>')" class="btn btn-success btn-block"><i class="fa fa-shopping-cart"></i> Beli Kain Ini</button>
               <?php else: ?>
-                <button type="button" onclick="beli(<?php echo $d['kode_produk'] ?>)" class="btn btn-success" disabled><i class="fa fa-shopping-cart"></i> Beli</button> <span>Anda tidak dapat berbelanja di toko kami sebelum login member.</span>
+                <button type="button" class="btn btn-success" disabled><i class="fa fa-shopping-cart"></i> Beli Kain Ini</button> <span>Anda tidak dapat berbelanja di toko kami sebelum login member.</span>
             <?php endif; ?>
             </td>
           </tr>
@@ -51,3 +51,19 @@
 </div>
 
 <div class="alert alert-warning"><i class="fa fa-warning"></i> Minimal Pembelian 5 Roll</div>
+
+<script>
+
+  function beli(e)
+  {
+    $.ajax({
+      url : "<?php echo site_url('tambah-keranjang') ?>",
+      type : "POST",
+      data : { kode : e },
+      success : function(){
+        location.href = "<?php echo site_url('keranjang-belanja') ?>";
+      }
+    })
+  }
+
+</script>
