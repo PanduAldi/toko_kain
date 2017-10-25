@@ -57,17 +57,12 @@
                 <li class="upper-links"><a class="links" href="<?php echo site_url('cara-belanja') ?>">Cara Belanja</a></li>
                 <li class="upper-links"><a class="links" href="<?php echo site_url('hubungi-kami') ?>">Hubungi Kami</a></li>
                 <?php if ($this->session->userdata('m_login') == true): ?>
-<!--                 <li class="upper-links dropdown"><a class="links" href="http://clashhacks.in/">Dropdown</a>
+                <li class="upper-links dropdown"><a class="links" href="#">Menu Member <i class="fa fa-cog"></i></a>
                     <ul class="dropdown-menu">
-                        <li class="profile-li"><a class="profile-links" href="http://yazilife.com/">Link</a></li>
-                        <li class="profile-li"><a class="profile-links" href="http://hacksociety.tech/">Link</a></li>
-                        <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">Link</a></li>
-                        <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">Link</a></li>
-                        <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">Link</a></li>
-                        <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">Link</a></li>
-                        <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">Link</a></li>
+                        <li class="profile-li"><a class="profile-links" href="<?php echo site_url('profil-anda') ?>">Profil</a></li>
+                        <li class="profile-li"><a class="profile-links" href="<?php echo site_url('member-logout') ?>">Logout</a></li>
                     </ul>
-                </li> -->
+                </li>
                 <?php else: ?>
 	                <li class="upper-links"><a class="links" href="<?php echo site_url('member-area') ?>">Member Area</a></li>
                 <?php endif ?>
@@ -132,8 +127,8 @@
 
 		<div class="col-md-4">
 		    <h3>Lokasi Badjatex </h3>
-		    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d433868.0837064906!2d35.66744174160663!3d31.836036762053016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151b5fb85d7981af%3A0x631c30c0f8dc65e8!2sAmman!5e0!3m2!1sen!2sjo!4v1499168051085" sytle="" frameborder="0" style="border:0" allowfullscreen></iframe>
-		</div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7920.5788985992!2d107.60580623221216!3d-6.9751364702454195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e904ae394787%3A0x66f52729f4abaea8!2sBadjatex!5e0!3m2!1sid!2sid!4v1508638048876" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
 		<div class="col-md-4" >
 		    <h3>Kontak Kami</h3>
 		    <ul>

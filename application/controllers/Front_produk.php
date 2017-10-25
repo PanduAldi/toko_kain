@@ -17,7 +17,7 @@ class Front_produk extends CI_Controller {
 		$select = "kategori.nama AS nama_kat, produk.*";
 		$data['produk'] = $this->produk_model->get(array('limit' => $limit, 'offset' => $offset,  'kategori' => $id));
 
-		$kat = $this->db->get('kategori', array('id_kategori' => $id))->row_array();
+		$kat = $this->db->query('SELECT * FROM kategori WHERE id_kategori = '.$id)->row_array();
 
 		$data['title'] = "Kategori ".$kat['nama'];
 

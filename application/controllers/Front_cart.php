@@ -24,7 +24,7 @@ class Front_cart extends CI_Controller {
 	{
 		$id = $this->input->post('kode');
 
-		$cek = $this->produk_model->get(array('kode' => $id));
+		$cek = $this->produk_model->get(array('select' => 'produk.*','kode' => $id));
 
 		$data = array(
 						'id' => $cek['kode_produk'],

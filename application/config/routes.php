@@ -71,16 +71,22 @@ $route['search'] = 'front_produk/cari_produk';
 $route['member-area'] = "front_member";
 $route['register-member'] = "front_member/register";
 $route['profil-anda'] = "front_member/profil";
-$route['edit-profil'] = "front_member/edit-profil";
+$route['edit-profil'] = "front_member/edit_profil";
 $route['member_get_city'] = "front_member/cari_kota";
 $route['do_member_login'] = "front_member/do_login";
 $route['member-logout'] = "front_member/logout";
+$route['edit-alamat'] = "front_member/edit_alamat";
 
 #cart
 $route['keranjang-belanja'] = "front_cart";
 $route['tambah-keranjang'] = "front_cart/add";
 $route['update-keranjang'] = "Front_cart/edit";
 $route['hapus-keranjang/(:any)'] = "front_cart/delete/$1";
+
+//Transaksi_route
+$route['konfirmasi-order'] = "front_transaksi/konfirmasi_order";
+$route['order-sukses'] = "front_transaksi/order_sukses";
+
 
 //API
 $route['ambil-provinsi'] = "api_controller/get_all_province";

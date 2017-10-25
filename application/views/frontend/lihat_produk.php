@@ -35,7 +35,12 @@
           <tr>
             <td colspan="3">
               <?php if ($this->session->userdata('m_login') == true): ?>
-                  <button type="button" onclick="beli('<?php echo $d['kode_produk'] ?>')" class="btn btn-success btn-block"><i class="fa fa-shopping-cart"></i> Beli Kain Ini</button>
+                  <?php if ($d['stok'] == 0 || $d['stok'] <= 5): ?>
+                    <button type="button" onclick="beli('<?php echo $d['kode_produk'] ?>')" class="btn btn-success btn-block" disabled><i class="fa fa-shopping-cart"></i> Beli Kain Ini</button>
+                  <?php else: ?>
+                    <button type="button" onclick="beli('<?php echo $d['kode_produk'] ?>')" class="btn btn-success btn-block"><i class="fa fa-shopping-cart"></i> Beli Kain Ini</button>  
+                  <?php endif ?>
+                  
               <?php else: ?>
                 <button type="button" class="btn btn-success" disabled><i class="fa fa-shopping-cart"></i> Beli Kain Ini</button> <span>Anda tidak dapat berbelanja di toko kami sebelum login member.</span>
             <?php endif; ?>

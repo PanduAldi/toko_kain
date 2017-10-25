@@ -27,7 +27,10 @@
           <div class="col-md-9">
             <select class="form-control" name="qty[]">
               <?php
-                for ($i=5; $i < 100 ; $i++) {
+
+                $stok = $this->produk_model->get(array('select' =>'stok', 'kode' => $item['id']));
+
+                for ($i=5; $i <= $stok['stok'] ; $i++) {
                   $select = ($item['qty'] == $i)?"selected":"";
 
                   echo '<option value="'.$i.'" '.$select.'>'.$i.'</option>';
@@ -54,7 +57,7 @@
 <?php if ($this->session->userdata('m_login') == true && !empty ($this->cart->contents())): ?>
   <button type="submit" class="btn btn-primary" name="update_jumlah"><i class="fa fa-edit"></i>  Update Jumlah Belanja</button>
   <a href="<?php echo base_url() ?>" class="btn btn-warning"> <i class="fa fa-shopping-cart"></i> Lanjutkan Belanja</a>
-  <a href="<?php echo site_url('lanjutkan-transaksi') ?>" class="btn btn-success"><i class="fa fa-money"></i> Lanjutkan Transaksi</a>
+  <a href="<?php echo site_url('konfirmasi-order') ?>" class="btn btn-success"><i class="fa fa-money"></i> Lanjutkan Transaksi</a>
 <br><br>
 <?php else: ?>
   <br>
@@ -64,3 +67,14 @@
 <?php endif; ?>
 
 </form>
+
+
+<div class="alert alert-info">
+  <i class="fa fa-info-circle"></i> Informasi
+  <ul>
+    <li>Jumlah beli default menyesuaikan pada batas minimum beli yaitu 5 roll</li>
+    <li>Untuk menambah jumlah beli. Silahkan pilih berapa roll yang anda akan beli. kemudian klik tombol  <button type="button" class="btn btn-primary btn-sm" name="update_jumlah"><i class="fa fa-edit"></i>  Update Jumlah Belanja</button> diatas.</li>
+    <li>Angka dari form jumlah beli, menyesuaikan stok pada toko kami.</li>
+    <li>Jika telah selesai melihat keranjang belanja, anda dapat melajutkan transaksi ataupun melajutkan belanja.</li>
+  </ul>
+</div>

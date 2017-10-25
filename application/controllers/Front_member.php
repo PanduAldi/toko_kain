@@ -70,11 +70,13 @@ class Front_member extends CI_Controller {
 						$v = $cek->row_array();
 
 						$this->session->set_userdata('m_login', true);
+						$this->session->set_userdata('m_id', $v['id_pelanggan']);
 						$this->session->set_userdata('m_nama', $v['nama']);
 						$this->session->set_userdata('m_email', $v['email']);
 						$this->session->set_userdata('m_id_prov', $v['id_prov']);
 						$this->session->set_userdata('m_provinsi', $v['provinsi']);
 						$this->session->set_userdata('m_id_kab', $v['id_kab']);
+						$this->session->set_userdata('m_jk', $v['jk']);
 						$this->session->set_userdata('m_kabupaten', $v['kabupaten']);
 						$this->session->set_userdata('m_telp', $v['telp']);
 						$this->session->set_userdata('m_alamat', $v['alamat']);
@@ -95,6 +97,9 @@ class Front_member extends CI_Controller {
 
 	public function profil()
 	{
+		if ($this->session->userdata('m_login') == false) {
+			redirect('member-area');
+		}
 		$data['title'] = "Profil Anda";
 
 		$this->template->display('frontend/member/profil', $data);
@@ -112,6 +117,75 @@ class Front_member extends CI_Controller {
 		foreach ($json['rajaongkir']['results'] as $v) {
 			echo '<option value="'.$v['city_id'].'|'.$v['city_name'].'">'.$v['city_name'].'</option>';
 		}
+	}
+
+	public function edit_profil()
+	{
+		if ($this->session->userdata('m_login') == false) {
+			redirect('member-area');
+		}
+			$data['title'] = "Edit Profil Anda";
+			$data['v'] = $this->member_model->get(array('id' => $this->session->userdata('m_id')));
+
+			$this->template->display('frontend/member/edit_profil', $data);
+
+			if (isset($_POST['simpan']))
+			{
+					if ($this->input->post('password') == "")
+					{
+						$rec = array(
+								'nama' => $this->input->post('nama'),
+								'jk' => $this->input->post('jk'),
+								'email' => $this->input->post('email'),
+								'telp' => $this->input->post('telp')
+						);
+					}
+					else {
+						$rec = array(
+								'nama' => $this->input->post('nama'),
+								'jk' => $this->input->post('jk'),
+								'email' => $this->input->post('email'),
+								'password' => sha1($this->input->post('password')),
+								'telp' => $this->input->post('telp')
+						);
+					}
+
+					$this->member_model->edit($rec, $this->session->userdata('m_id'));
+					$this->session->set_flashdata('notif', '<div class="alert alert-success">Edit Profil berhasil</div>');
+					redirect('edit-profil','refresh');
+			}
+	}
+
+	public function edit_alamat()
+	{
+		if ($this->session->userdata('m_login') == false) {
+			redirect('member-area');
+		}
+
+		$data['title'] = "Edit Alamat";
+		$data['d'] = $this->member_model->get(array('id' => $this->session->userdata('m_id')));
+
+		$this->template->display('frontend/member/edit_alamat', $data);
+
+		if (isset($_POST['simpan'])) 
+		{
+			$provinsi = explode('|', $this->input->post('provinsi'));
+			$kabupaten = explode("|", $this->input->post('kota'));
+
+			$rec = array(
+							"alamat" => $this->input->post('alamat'),
+							"id_prov" => $provinsi[0],
+							"provinsi" => $provinsi[1],
+							"id_kab" => $kabupaten[0],
+							"kabupaten" => $kabupaten[1]
+						);
+
+			$this->member_model->edit($rec, $this->session->userdata('m_id'));
+			$this->session->set_flashdata('notif', '<div class="alert alert-success">Edit Alamat Berhasil..!!</div>');
+			redirect('edit-alamat','refresh');
+		}
+
+
 	}
 
 	public function logout()
