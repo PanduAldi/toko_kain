@@ -31,7 +31,7 @@ class Front_cart extends CI_Controller {
 						'name' => $cek['nama'],
 						'qty' => 5,
 						'price' => $cek['harga'],
-						'options' => array('img' => $cek['img'])
+						'options' => array('img' => $cek['img'], 'id_produk' => $cek['id_produk'])
 					);
 
 		$this->cart->insert($data);

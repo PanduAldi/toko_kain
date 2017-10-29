@@ -33,7 +33,7 @@ margin-top:0px;  }
         </div>
       </div>
      </a>
-     <a href="#">
+     <a href="<?php echo site_url('pembayaran-anda') ?>">
        <div class="col-md-4">
         <div class="specialities">
             <img src="<?php echo base_url('media/img/icon/credit-card.png') ?>" alt="">
@@ -41,7 +41,7 @@ margin-top:0px;  }
         </div>
       </div>
      </a>
-     <a href="#">
+     <a href="<?php echo site_url('pemesanan-anda') ?>">
        <div class="col-md-4">
         <div class="specialities">
             <img src="<?php echo base_url('media/img/icon/cart.png') ?>" alt="">

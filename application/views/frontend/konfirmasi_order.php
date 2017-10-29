@@ -7,21 +7,21 @@
 				<h3 class="panel-title">Pengiriman</h3>
 			</div>
 			<div class="panel-body">
-				<label for="" class="control-label">Nama Pengirim</label>
+				<label for="" class="control-label">Nama Penerima</label>
 				<br>
-				<?php echo ucwords($this->session->userdata('m_nama')) ?>
+				<?php echo ucwords($u['nama']) ?>
 				<hr>
 				<label for="">Email</label>
 				<br>
-				<?php echo $this->session->userdata('m_email') ?>
+				<?php echo $u['email'] ?>
 				<br><br>
 				<label for="">Telp / HP</label>
 				<br>
-				<?php echo $this->session->userdata('m_telp') ?>
+				<?php echo $u['telp'] ?>
 				<br><br>
 				<label for="">Alamat</label>
 				<br>
-				<?php echo $this->session->userdata('m_alamat').", ".$this->session->userdata('m_kabupaten')." ".strtoupper($this->session->userdata('m_provinsi')) ?>
+				<?php echo $u['alamat'].", ".$u['kabupaten']." ".strtoupper($u['provinsi']) ?>
 			</div>
 		</div>
 	</div>
@@ -50,7 +50,7 @@
 				        <td width="200"><img src="<?php echo base_url('media/img/produk/'.$item['options']['img']) ?>" width="100" height="100" alt=""></td>
 				        <td><label class="control-label"><?php echo $item['name'] ?></label></td>
 				        <td><?php echo "Rp. ".$this->cart->format_number($item['price']) ?></td>
-				        <td width="140">
+				        <td width="140">	
 						  <?php echo $item['qty'] ?>
 				          <span> Roll</span>
 				        </td>
@@ -91,7 +91,12 @@
 				    </tr>
 				</table>
 				<div align="right">
-					<a href="" class="btn btn-primary"><i class="fa fa-money"></i> Bayar Sekarang</a>
+					
+					<form action="<?php echo site_url('order-success') ?>" method="post">
+						<input type="hidden" name="inv" value="<?php echo $inv ?>">
+						<a href="<?php echo site_url('keranjang-belanja') ?>" class="btn btn-danger"><i class="fa fa-back"></i> Kembali Ke Keranjang Belanja</a>
+						<button type="submit" class="btn btn-primary"><i class="fa fa-money"></i> Bayar Sekarang</button>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -103,6 +108,10 @@
 		<h3 class="panel-title"><i class="fa fa-info-circle"></i> Informasi</h3>
 	</div>
 	<div class="panel-body">
-		Panel content
+		<ul>
+			<li> Untuk melanjutkan pembayaran silahkan pilih tombol Bayar Sekarang </li>
+			<li> Ongkos Kirim Menyesuaikan alamat pada profil anda.</li>
+			<li> Ongkos kirim dihitung dari Berat  pengiriman sebesar 5 Kg</li>
+		</ul>
 	</div>
 </div>

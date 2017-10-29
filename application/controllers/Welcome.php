@@ -31,6 +31,11 @@ class Welcome extends CI_Controller {
 		$this->load->view('welcome_message');
 	}
 
+	public function sukses()
+	{
+		$this->template->display('frontend/order_sukses');
+	}
+
 	public function cart()
 	{
 

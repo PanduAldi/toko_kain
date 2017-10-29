@@ -76,6 +76,10 @@ $route['member_get_city'] = "front_member/cari_kota";
 $route['do_member_login'] = "front_member/do_login";
 $route['member-logout'] = "front_member/logout";
 $route['edit-alamat'] = "front_member/edit_alamat";
+$route['pemesanan-anda'] = "front_member/pemesanan_anda";
+$route['lihat-pemesanan/(:num)'] = "front_member/lihat_pemesanan/$1"; 
+$route['form-pembayaran/(:num)'] = "front_member/form_pembayaran/$1";
+$route['pembayaran-anda'] = "front_member/pembayaran_anda";
 
 #cart
 $route['keranjang-belanja'] = "front_cart";
@@ -85,7 +89,7 @@ $route['hapus-keranjang/(:any)'] = "front_cart/delete/$1";
 
 //Transaksi_route
 $route['konfirmasi-order'] = "front_transaksi/konfirmasi_order";
-$route['order-sukses'] = "front_transaksi/order_sukses";
+$route['order-success'] = "front_transaksi/order_sukses";
 
 
 //API

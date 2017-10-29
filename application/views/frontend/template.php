@@ -17,8 +17,9 @@
     <link rel="stylesheet" href="<?php echo assets_url ?>font-awesome/css/font-awesome.min.css">
 		<!-- Datatables -->
 		<link rel="stylesheet" href="<?php echo assets_url ?>datatables/dataTables.bootstrap.css">
+		
 
-		<!-- Date Picker -->
+        <!-- Date Picker -->
 		<link rel="stylesheet" href="<?php echo assets_url ?>datepicker/datepicker3.css">
 
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -158,6 +159,11 @@
   </span>
 </div>
 
+        <!-- datatables -->
+        <script src="<?php echo assets_url ?>datatables/jquery.dataTables.min.js"></script>
+        <script src="<?php echo assets_url ?>datatables/dataTables.bootstrap.js"></script>
+
+
 <script>
 //Thanks to: http://www.webtipblog.com/adding-scroll-top-button-website/
 
@@ -187,6 +193,12 @@ function scrollToTop() {
 
 });
 </script>
+
+    <script>
+        $(function(){
+            $("#datatable").dataTable();
+        })
+    </script>
 
   </body>
 </html>

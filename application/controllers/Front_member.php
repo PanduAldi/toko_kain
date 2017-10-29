@@ -188,6 +188,73 @@ class Front_member extends CI_Controller {
 
 	}
 
+
+	public function pemesanan_anda()
+	{
+
+		$data['title'] = "Pemesanan Anda";
+		$data['pemesanan'] = $this->db->get_where('transaksi', array('id_pelanggan' => $this->session->userdata('m_id')))->result_array();
+
+		$this->template->display('frontend/pemesanan_anda', $data);
+		
+	}
+
+	public function lihat_pemesanan($id)
+	{
+		$data['title'] = 'Lihat Pemesanan Anda';
+
+		$cari_pemesanan = $this->db->get_where('transaksi', array('id_transaksi' => $id))->row_array();
+		//join pemesanan
+		$this->db->join('produk', 'produk.id_produk = detail_transaksi.id_produk');
+		$this->db->where('no_invoice', $cari_pemesanan['no_invoice']);
+
+		$data['lihat'] = $this->db->get('detail_transaksi')->result_array();
+
+		$data['inv'] = $cari_pemesanan['no_invoice'];
+
+		$this->template->display('frontend/lihat_pemesanan', $data);
+
+	}
+
+	public function form_pembayaran($id)
+	{
+		$data['title'] = "Konfirmasi Pembayaran";
+		$data['bank'] = $this->db->get('bank')->result_array();
+
+		if (isset($_POST['simpan'])) 
+		{
+			$rec = array(
+							'id_pembayaran' => '',
+							'id_pelanggan' => $this->session->userdata('m_id'),
+							'id_transaksi' => $id,
+							'id_bank' => $this->input->post('id_bank'),
+							'bank' => $this->input->post('bank'),
+							'no_rek' => $this->input->post('no_rek'),
+							'an' => $this->input->post('an'),
+							'tgl_pembayaran' => date('Y-m-d H:i:s'),
+							'status' => 'pending'
+						);
+
+
+			$this->db->insert('pembayaran', $rec);
+			$this->session->set_flashdata('notif_pembayaran', '<div class="alert alert-success">Pembayaran anda telah dikirim</div>');
+			redirect('pembayaran-anda');
+
+		}
+
+		$this->template->display('frontend/form_pembayaran', $data);
+	}
+
+	public function pembayaran_anda()
+	{
+		$data['title'] = "Pembayaran Anda ";
+		$this->db->join('transaksi', 'transaksi.id_transaksi = pembayaran.id_transaksi');
+		$data['pembayaran'] = $this->db->get_where('pembayaran', array('pembayaran.id_pelanggan' => $this->session->userdata('m_id')))->result_array();
+
+		$this->template->display('frontend/pembayaran_anda', $data);
+
+	}
+
 	public function logout()
 	{
 		$this->session->sess_destroy();
