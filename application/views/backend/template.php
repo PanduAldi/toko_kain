@@ -12,7 +12,7 @@
     <title><?php echo $title ?> | Toko Kain</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="<?php echo assets_url; ?>bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo assets_url; ?>bootstrap/css/lumen.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo assets_url ?>font-awesome/css/font-awesome.min.css">
 
 
@@ -85,20 +85,18 @@
 					<li><a href="<?php echo site_url('dashboard') ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
 					<li><a href="<?php echo site_url('setting-kategori') ?>"><i class="fa fa-list"></i> Kategori</a></li>
 					<li><a href="<?php echo site_url('setting-produk') ?>"><i class="fa fa-cubes"></i> Produk</a></li>
-					<li><a href="<?php echo site_url('setting-pemesanan') ?>"><i class="fa fa-shopping-cart"></i> Pemesananan</a></li>
-					<li><a href="<?php echo site_url('setting-user') ?>"><i class="fa fa-user"></i> User</a></li>
-          <li><a href="<?php echo site_url('setting-member') ?>"></a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-shopping-cart"></i> Transaksi <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="<?php echo site_url('setting-pemesanan') ?>">Pemesanan</a></li>
+							<li><a href="<?php echo site_url('setting-pembayaran') ?>">Pembayaran</a></li>
+						</ul>
+					</li>
+					
+          <li><a href="<?php echo site_url('setting-member') ?>"><i class="fa fa-users"></i> Pelanggan</a></li>
           <li><a href="<?php echo site_url('setting-bank') ?>"><i class="fa fa-credit-card"></i> Setting Bank</a></li>
           <li><a href="<?php echo site_url('logout') ?>"><i class="fa fa-sign-out"></i> Logout</a></li>
-          <!-- <li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
-							<li><a href="#">Separated link</a></li>
-						</ul>
-					</li> -->
+          
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</div>

@@ -6,6 +6,9 @@ class Transaksi_model extends CI_Model {
 	var $table = "transaksi";
 	var $id    = "id_transaksi";
 
+	var $table2 = "detail_transaksi";
+	var $id2 = "id_detail_transaksi"; 
+
 	public function get($params=array())
 	{
 		if (isset($params['select'])) 
@@ -38,6 +41,12 @@ class Transaksi_model extends CI_Model {
 	{
 		$this->db->where($this->id, $id);
 		$this->db->update($this->table, $record);
+	}
+
+	public function edit_pembayaran($record, $id)
+	{
+		$this->db->where('id_pembayaran', $id);
+		$this->db->update('pembayaran', $record);
 	}
 
 	public function del($id)
@@ -84,6 +93,8 @@ class Transaksi_model extends CI_Model {
 
 		return $result;
 	}
+
+
 
 }
 

@@ -52,8 +52,10 @@ class Front_transaksi extends CI_Controller {
 	  		{
 
 				$data['title'] = "Order Success";
+
+				$cek_kab = $this->db->get_where('pelanggan', array('id_pelanggan' => $this->session->userdata('m_id')))->row_array();
 			
-				$ongkir = file_get_contents(site_url('cek-ongkir/'.$this->session->userdata('m_id_kab')));
+				$ongkir = file_get_contents(site_url('cek-ongkir/'.$cek_kab['id_kab']));
 
 		  		$j = json_decode($ongkir, true);
 		  		$cek = $j['rajaongkir']['results'][0]['costs'][1];

@@ -62,4 +62,12 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('frontend/template');
 	} 
+
+	public function ris()
+	{
+		$data['title'] = "RIS";
+		$data['d'] = file_get_contents('http://10.33.29.20:8055/Ris/Ris/refresh_data');
+
+		$this->template->display('ris', $data);
+	}
 }

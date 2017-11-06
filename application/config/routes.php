@@ -122,3 +122,12 @@ $route['setting-bank'] = "bank_controller";
 $route['tambah-bank'] = "bank_controller/add";
 $route['ubah-bank/(:num)'] = "bank_controller/edit/$1";
 $route['hapus-bank'] = "bank_controller/delete";
+
+$route['setting-pemesanan'] = 'transaksi_controller/setting_pemesanan';
+$route['setting-pembayaran'] = 'transaksi_controller/setting_pembayaran';
+$route['cek_pembayaran'] = "transaksi_controller/cek_pembayaran";
+$route['verifikasi-pembayaran/(:num)'] = "transaksi_controller/verifikasi_pembayaran/$1";
+$route['hapus-transaksi'] = "transaksi_controller/hapus";
+$route['konfirmasi_pengiriman'] = "transaksi_controller/konfirmasi_pengiriman";
+$route['konfirmasi_selesai'] = "transaksi_controller/konfirmasi_selesai";
+$route['detail_pemesanan/(:num)'] = "transaksi_controller/lihat_detail/$1";
